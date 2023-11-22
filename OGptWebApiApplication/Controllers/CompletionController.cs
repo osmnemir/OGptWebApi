@@ -19,15 +19,15 @@ namespace OGptWebApiApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Chat([FromBody] string prompt)
         {
-            if(!(prompt is null))
+            if(prompt==null)
             {
                 throw new Exception("Boş bir değer girdiniz.");
                 return BadRequest();
 
             }
-            string answer=await _completionServices.startRequest(prompt);
-            var jsonAnswer=JsonSerializer.Serialize(answer);
-            return Ok(jsonAnswer);
+            string cevap=await _completionServices.startRequest(prompt);
+            var jsonCevap=JsonSerializer.Serialize(cevap);
+            return Ok(jsonCevap);
         }
     }
 }

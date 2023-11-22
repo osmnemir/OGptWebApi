@@ -22,8 +22,8 @@ namespace OGptWebApiApplication.Services
                 MaxTokens = 1000
 
             }, Models.TextDavinciV3);
-            string answer = response.Choices[0].Text;
-            return answer;
+            string cevap = response.Choices[0].Text;
+            return cevap;
         }
     }
 }
